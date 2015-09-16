@@ -1,0 +1,29 @@
+{
+  "name": "polymer-demo",
+  "version": "0.0.0",
+  "authors": [
+    "John Heroy <johnheroy@gmail.com>"
+  ],
+  "description": "Basic Polymer Demo",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "polymer",
+    "web",
+    "components"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}
