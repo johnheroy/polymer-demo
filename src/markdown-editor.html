@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+<link rel="import" href="../bower_components/marked-element/marked-element.html">
+
+<dom-module id="markdown-editor">
+
+  <style>
+    :host #marked {
+    	left: 50%;
+    	margin: 15px;
+    	max-width: calc(50% - 30px);
+    	position: fixed;
+    	top: 0;
+    	word-wrap: break-word;
+    }
+
+    :host #textarea {
+    	left: 0;
+    	margin: 15px;
+    	max-width: calc(50% - 30px);
+    	position: fixed;
+    }
+  </style>
+
+  <template>
+    <marked-element id="marked" markdown="{{rawMarkdown}}"></marked-element>
+    <iron-autogrow-textarea id="textarea" bind-value="{{rawMarkdown}}">
+    </iron-autogrow-textarea>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'markdown-editor',
+
+      properties: {
+      	rawMarkdown: {
+      		type: String,
+      		value: '`Markdown` is _awesome_!'
+      	}
+      }
+
+    });
+  
+  </script>
+
+</dom-module>
