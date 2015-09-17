@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="pokemon-img">
+
+  <style>
+    :host #pokepic {
+      height: 300px;
+      width: 300px;
+    }
+  </style>
+
+  <template>
+    <img id="pokepic" src="../pokepics/bulbasaur.png" />
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'pokemon-img',
+
+      properties: {
+        pokedexNumber: {
+          type: Number,
+          observer: 'pokedexNumberChanged',
+          reflectToAttribute: true
+        }
+      },
+
+      created: function() {
+        console.log('sweet, I\'m a pokemon!');
+      },
+
+      pokedexNumberChanged: function() {
+        console.log('pokedex number changed!');
+        var pokemonName = this._pokedexNumberToName(this.pokedexNumber);
+        this.$.pokepic.src = '../pokepics/' + pokemonName + '.png';
+      },
+
+      _pokedexNumberToName: function(pokedexNumber) {
+        switch (pokedexNumber) {
+          case 1:
+            return 'bulbasaur';
+          case 2:
+            return 'ivysaur';
+          case 3:
+            return 'venusaur';
+          case 4:
+            return 'charmander';
+          case 5:
+            return 'charmeleon';
+          case 6:
+            return 'charizard';
+          case 7:
+            return 'squirtle';
+          case 8:
+            return 'wartortle';
+          case 9:
+            return 'blastoise';
+          default:
+            console.error('sorry, we don\'t have a pic for that pokemon!');
+        }
+      }
+
+    });
+  
+  </script>
+
+</dom-module>

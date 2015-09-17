@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="pokemon-img.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="pokemon-picker">
+
+  <style>
+    :host {
+      width: 300px;
+    }
+
+    :host {
+      float: left;
+    }
+  </style>
+
+  <template>
+    <pokemon-img pokedex-number="1" id="pokemonImg"></pokemon-img>
+    <paper-button on-click="handleBtnClick">Show me another one!</paper-button>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'pokemon-picker',
+
+      handleBtnClick: function() {
+        var newPokedexNumber = Math.floor(Math.random() * 9) + 1;
+        this.$.pokemonImg.pokedexNumber = newPokedexNumber;
+      }
+
+    });
+  
+  </script>
+
+</dom-module>
