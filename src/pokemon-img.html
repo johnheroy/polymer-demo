@@ -10,7 +10,7 @@
   </style>
 
   <template>
-    <img id="pokepic" src="../pokepics/bulbasaur.png" />
+    <img id="pokepic" src="../pokepics/bulbasaur.png" title="Bulbasaur"/>
   </template>
 
   <script>
@@ -35,6 +35,8 @@
         console.log('pokedex number changed!');
         var pokemonName = this._pokedexNumberToName(this.pokedexNumber);
         this.$.pokepic.src = '../pokepics/' + pokemonName + '.png';
+        this.$.pokepic.title =
+            pokemonName[0].toUpperCase() + pokemonName.slice(1);
       },
 
       _pokedexNumberToName: function(pokedexNumber) {
